@@ -1,0 +1,14 @@
+# intrinsics only
+{
+    'lensmodel':  'LENSMODEL_OPENCV8',
+
+    # intrinsics are fx,fy,cx,cy,distortion0,distortion1,....
+    'intrinsics': [ 1465.976861, 1466.019597, 1228.999397, 1099.039611, -0.09828267293, 0.04043749552, 0.0004188602667, 0.0001279393866, 0.02769599457, 0.01267008204, -0.06596061112, 0.05043238274,],
+
+    'rt_cam_ref': [ 0, 0, 0, 0, 0, 0,],
+    'extrinsics': [ 0, 0, 0, 0, 0, 0,], # for compatibility with mrcal < 2.5
+
+    'imagersize': [ 2464, 2056,],
+
+
+}

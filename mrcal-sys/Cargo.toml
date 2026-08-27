@@ -1,0 +1,35 @@
+[package]
+name = "mrcal-sys"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+# Composite of everything statically linked into the artifact: mrcal and
+# SuiteSparse_metis are Apache-2.0; AMD/CAMD/COLAMD/CCOLAMD/SuiteSparse_config
+# are BSD-3-Clause; CHOLMOD's Check/Cholesky/Utility/Partition modules are
+# LGPL-2.1-or-later (GPL modules are excluded via CHOLMOD_GPL=OFF); libdogleg
+# is LGPL-3.0-or-later. The Rust code in this crate is Apache-2.0.
+license = "Apache-2.0 AND BSD-3-Clause AND LGPL-2.1-or-later AND LGPL-3.0-or-later"
+description = "Raw FFI bindings to libmrcal, built from source (mrcal + libdogleg + SuiteSparse/CHOLMOD, statically linked)"
+readme = "README.md"
+keywords = ["camera", "calibration", "computer-vision", "ffi", "bindings"]
+categories = ["external-ffi-bindings", "computer-vision", "science::robotics"]
+links = "mrcal"
+
+[dependencies]
+
+[package.metadata.docs.rs]
+# The build script ships generated/bindings.rs instead of building the C
+# library when DOCS_RS is set; docs.rs has no network access.
+all-features = true
+
+[build-dependencies]
+bindgen = "0.72.1"
+cc = "1.2.67"
+cmake = "0.1.58"
+flate2 = "1.1.9"
+sha2 = "0.11.0"
+tar = "0.4.46"
+ureq = "3.3.0"
